@@ -1,0 +1,14 @@
+# Ignore macOS junk
+*.DS_Store
+
+# Ignore all Dockerfiles
+Dockerfile
+*.Dockerfile
+
+# Ignore readmes and Licences
+LICENSE
+README.md
+*README.md
+
+# Ignore tlsf files
+*.tlsf

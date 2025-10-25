@@ -1,0 +1,24 @@
+[project]
+name = "tempo-bench"
+version = "0.1.0"
+description = "Benchmarking framework and datasets for temporal automata tasks"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+[tool.black]
+line-length = 88
+target-version = ["py312"]
+skip-string-normalization = false
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.flake8]
+max-line-length = 88
+extend-ignore = ["E203", "W503"]
+
+[tool.mypy]
+python_version = "3.12"
+warn_unused_ignores = true

@@ -1,0 +1,50 @@
+name: Reject Uppercase Filenames
+
+on:
+  push:
+    branches:
+      - "**"   # run on all branches
+  pull_request:
+    branches:
+      - "**"
+
+jobs:
+  check-uppercase:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Find uppercase filenames
+        run: |
+          # go to github root
+          cd "${GITHUB_WORKSPACE}"
+
+          # List files with uppercase letters
+          candidates=$(git ls-files | grep '[A-Z]')
+
+          ignored=$(mktemp)
+          matched=""
+
+          # Loop through ignore patterns and filter out matches
+          while IFS= read -r pattern; do
+            [ -z "$pattern" ] && continue
+            # Use shell globbing to expand pattern
+            for f in $candidates; do
+              if [[ "$f" == $pattern ]]; then
+                echo "Ignoring $f (matched $pattern)"
+                echo "$f" >> "$ignored"
+              fi
+            done
+          done < .uppercase_allowed
+
+          # Remove ignored files from the candidate list
+          bad_files=$(comm -23 <(printf "%s\n" $candidates | sort) <(sort "$ignored"))
+
+          if [ -n "$bad_files" ]; then
+            echo "❌ Uppercase filenames detected:"
+            echo "$bad_files"
+            exit 1
+          else
+            echo "✅ No disallowed uppercase filenames found."
+          fi

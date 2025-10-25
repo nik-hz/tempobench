@@ -1,0 +1,106 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Debugger: benchmark",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "benchmark",
+            "console": "integratedTerminal",
+            "args": [
+                "--dataset_path",
+                "data/trace-sample.jsonl",
+                "--task",
+                "trace_sample",
+                "--model",
+                "openai/gpt-4o-mini",
+                "--results_dir",
+                "sample"
+            ]
+        },
+        {
+            "name": "Python Debugger: convert data",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/make_trace/convert_dataset.py",
+            "console": "integratedTerminal",
+            "args": [
+                "${workspaceFolder}/data/tempo-bench-raw.jsonl",
+                "${workspaceFolder}/data/tempo-bench-trace.jsonl",
+                "${workspaceFolder}/data/tempo-bench-causality.jsonl",
+            ]
+        },
+        {
+            "name": "Python Debugger: datasets.py -c",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "dataset.dataset",
+            "console": "integratedTerminal",
+            "args": [
+                "c",
+                "--file",
+                "data/raw-causal.jsonl",
+                "--dump",
+                "causal-done.jsonl",
+                "-s",
+                "2000"
+            ]
+        },
+        {
+            "name": "Python Debugger: datasets.py -t",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/dataset/dataset.py",
+            "console": "integratedTerminal",
+            "args": [
+                "-t"
+            ]
+        },
+        {
+            "name": "Python Debugger: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Python: make_trace -p",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "make_trace",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "-p",
+                "${workspaceFolder}/tlsf_specs",
+                "debug.jsonl",
+                "1",
+                "1",
+                "10"
+            ],
+            "env": {
+                "PATH": "/usr/local/bin:${env:PATH}",
+                "LD_LIBRARY_PATH": "/usr/local/lib:${env:LD_LIBRARY_PATH}"
+            }
+        },
+        {
+            "name": "Python: make_trace -s",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "make_trace",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "-s",
+                "${workspaceFolder}/tlsf_specs/spurious_arbiter.tlsf",
+            ],
+            "env": {
+                "PATH": "/usr/local/bin:${env:PATH}",
+                "LD_LIBRARY_PATH": "/usr/local/lib:${env:LD_LIBRARY_PATH}"
+            }
+        }
+    ]
+}

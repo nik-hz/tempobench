@@ -1,0 +1,21 @@
+.claude/
+.vscode/settings.json
+*/__pycache__/
+**/__pycache__/
+.devcontainer/.env
+
+.DS_Store
+
+# inputs and results
+results/
+runs/
+
+# data files
+*.tar.gz
+*.jsonl
+*.csv
+
+# test files
+*.hoa
+*.tlsf
+*.trace
