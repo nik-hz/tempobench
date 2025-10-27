@@ -1,9 +1,9 @@
 {
-    "name": "tempo-bench",
+    "name": "tempobench",
     "image": "nik101010/tempo-rl:latest",
     "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
     "mounts": [
-        "source=${localWorkspaceFolder}/tlsf_specs,target=/specs,type=bind",
+        // "source=${localWorkspaceFolder}/tlsf_specs,target=/specs,type=bind",
         "source=${env:SSH_AUTH_SOCK},target=/ssh-agent,type=bind"
     ],
     "features": {

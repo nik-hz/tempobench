@@ -3,7 +3,7 @@
 */__pycache__/
 **/__pycache__/
 .devcontainer/.env
-
+.venv/
 .DS_Store
 
 # inputs and results
@@ -13,9 +13,13 @@ runs/
 # data files
 *.tar.gz
 *.jsonl
+*.json
 *.csv
 
 # test files
 *.hoa
 *.tlsf
 *.trace
+
+# include sample data
+**data/
