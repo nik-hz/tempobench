@@ -5,7 +5,16 @@
 .devcontainer/.env
 .venv/
 .DS_Store
-
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+dist/
+*.egg-info/
+benchmark_results/
+runs/
+#
 # inputs and results
 results/
 runs/
@@ -20,6 +29,8 @@ runs/
 *.hoa
 *.tlsf
 *.trace
+
+
 
 # include sample data
 **data/
