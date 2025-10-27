@@ -1,9 +1,9 @@
 # benchmark/__init__.py
 """Benchmark package for TempoBench experiments.
 
-Provides BenchmarkRunner and CLI entrypoint.
+Provides TempobenchBenchmarker and CLI entrypoint.
 """
 
-from .benchmark import BenchmarkRunner
+from .benchmark import TempobenchBenchmarker
 
-__all__ = ["BenchmarkRunner"]
+__all__ = ["TempobenchBenchmarker"]

@@ -12,7 +12,7 @@ from torch.utils.data import DataLoader
 from torch.utils.tensorboard import SummaryWriter
 from tqdm import tqdm
 
-from dataset.dataset import TempoBench_Dataset
+from .dataset import TempoBench_Dataset
 
 
 def collate_keep_dict(batch):
@@ -20,7 +20,7 @@ def collate_keep_dict(batch):
     return list(prompts), list(labels), list(stats)
 
 
-class BenchmarkRunner:
+class TempobenchBenchmarker:
     def __init__(
         self,
         dataset_path,
@@ -44,7 +44,7 @@ class BenchmarkRunner:
         os.makedirs(self.results_dir, exist_ok=True)
 
         self.dataset = TempoBench_Dataset(
-            dataset_path, tokenizer=None, task=task, prebuilt=True
+            dataset_path, tokenizer=None, task=task, prebuilt=prebuilt
         )
 
         self.dataloader = DataLoader(
