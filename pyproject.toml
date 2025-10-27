@@ -9,7 +9,7 @@ description = "Benchmarking framework and datasets for temporal automata tasks"
 readme = "README.md"
 requires-python = ">=3.12"
 license = { text = "MIT" }
-authors = [{ name = "Nikolaus Holzer", email = "holzer@cs.columbia.edu" }]
+authors = [{ name = "Nikolaus Holzer" }]
 keywords = ["benchmark", "temporal-logic", "automata", "llm", "evaluation"]
 classifiers = [
     "Programming Language :: Python :: 3",
