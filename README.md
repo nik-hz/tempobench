@@ -10,6 +10,8 @@ Formally grounded **LLM benchmark** for temporal reasoning over automata/traces.
 - Outputs: row-wise JSONL + CSV with accuracy and F1s (AP & timestep).
 - Reproducible runs: fixed seeds, manifest-friendly outputs, small packaged sample datasets.
 
+The benchmarking datasets can be found at `https://huggingface.co/datasets/nikolausholzer/tempobench`.
+
 ---
 
 ## Install
@@ -124,3 +126,5 @@ You will need to have these env vars set for this to work properly.
 ## License
 
 MIT (see `LICENSE`).
+
+If you use this benchmark, please cite our paper!
