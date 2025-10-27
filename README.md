@@ -10,7 +10,14 @@ Formally grounded **LLM benchmark** for temporal reasoning over automata/traces.
 - Outputs: row-wise JSONL + CSV with accuracy and F1s (AP & timestep).
 - Reproducible runs: fixed seeds, manifest-friendly outputs, small packaged sample datasets.
 
-The benchmarking datasets can be found at `https://huggingface.co/datasets/nikolausholzer/tempobench`.
+
+---
+
+## Datasets
+
+Check my [huggingface](https://huggingface.co/datasets/nikolausholzer/tempobench) for the tempobench public benchmarking datasets.
+
+If you are interested in access to our datasets for reasoning SFT, reach out to me.
 
 ---
 
@@ -80,14 +87,6 @@ bench = Benchmark(
 df = bench.evaluate()
 print(df.head())
 ```
-
----
-
-## Datasets
-
-Check my huggingface for the tempobench public benchmarking datasets.
-
-If you are interested in access to our datasets for reasoning SFT, reach out to me.
 
 ---
 
