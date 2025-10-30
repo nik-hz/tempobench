@@ -1,4 +1,4 @@
-# Tempo-Bench
+# Mechanics of Learned Reasoning 1: TempoBench
 
 Formally grounded **LLM benchmark** for temporal reasoning over automata/traces. Runs locally via a clean CLI or Python API. Keeps the wheel thin (code + tiny samples) and lets you plug in **any model** (OpenAI-compatible, Hugging Face, vLLM, or your own class/function).
 
